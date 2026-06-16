@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noun Panhavuth | Portfolio</title>
+    <style>
+        /* Modern CSS Variables for easy color changes */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --border: #334155;
+            --max-width: 1000px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* Header Styling */
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            color: var(--text-muted);
+            max-width: 700px;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .links-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--card-bg);
+            border-color: var(--text-muted);
+        }
+
+        /* Section Global Styling */
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 0.75rem;
+        }
+
+        /* Skills Grid Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skills-category {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+
+        .skills-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+
+        .skills-list {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .skills-list li {
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skills-list li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+        }
+
+        /* Projects Layout (Stack format for high readability) */
+        .projects-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.75rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            font-size: 0.8rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-metrics {
+            background-color: rgba(15, 23, 42, 0.4);
+            border-left: 3px solid var(--accent);
+            padding: 0.75rem 1rem;
+            margin-bottom: 1.25rem;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.95rem;
+        }
+
+        .project-metrics strong {
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Small screen adjustments */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .project-card { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER / ABOUT ME -->
+        <header>
+            <h1>Noun Panhavuth</h1>
+            <div class="subtitle">Data Analyst & Software Engineer</div>
+            <p class="bio">
+                I bridge the gap between software systems and strategic data analytics. I specialize in extraction pipelines, complex SQL querying, business intelligence dashboards, and building custom software solutions that drive clear business results.
+            </p>
+            <div class="links-group">
+                <a href="https://github.com/YOUR_GITHUB_USERNAME" class="btn btn-primary" target="_blank">GitHub Profile</a>
+                <a href="https://linkedin.com/in/YOUR_LINKEDIN" class="btn btn-secondary" target="_blank">LinkedIn</a>
+                <a href="mailto:your.email@example.com" class="btn btn-secondary">Email Me</a>
+            </div>
+        </header>
+
+        <!-- TECHNICAL TOOLKIT -->
+        <section id="skills">
+            <h2>Technical Toolkit</h2>
+            <div class="skills-grid">
+                <div class="skills-category">
+                    <h3>Data & Analytics</h3>
+                    <ul class="skills-list">
+                        <li>SQL (PostgreSQL, SQLite)</li>
+                        <li>Power BI / Excel</li>
+                        <li>Python (Pandas, NumPy)</li>
+                        <li>Data Cleaning & ETL</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Software Engineering</h3>
+                    <ul class="skills-list">
+                        <li>C# (Windows Forms, .NET)</li>
+                        <li>Dart / Flutter</li>
+                        <li>OOP & Design Patterns</li>
+                        <li>Git & Version Control</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Core Frameworks</h3>
+                    <ul class="skills-list">
+                        <li>IT Project Management</li>
+                        <li>Cyber Kill Chain Concepts</li>
+                        <li>Relational DB Design</li>
+                        <li>System Analysis & Design</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-stack">
+                
+                <!-- PROJECT CARD 1 -->
+                <div class="project-card">
+                    <div class="project-title">E-Commerce Sales Performance Dashboard</div>
+                    <div class="project-tags">
+                        <span class="tag">SQL</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Data Analysis</span>
+                    </div>
+                    <p class="project-description">
+                        An end-to-end data analytics project transforming raw transactional data into interactive executive insights. Wrote complex SQL window functions and CTEs to execute Recency, Frequency, and Monetary (RFM) customer segmentation, identifying retention gaps.
+                    </p>
+                    <div class="project-metrics">
+                        <strong>Business Impact:</strong> Identified a 14% leak in customer retention within specific tech categories and provided recommendations to adjust seasonal inventory.
+                    </div>
+                    <div class="links-group">
+                        <a href="#" class="btn btn-secondary" target="_blank">Code Repository</a>
+                        <a href="#" class="btn btn-primary" target="_blank">Live Interactive Dashboard</a>
+                    </div>
+                </div>
+
+                <!-- PROJECT CARD 2 -->
+                <div class="project-card">
+                    <div class="project-title">Store Manager Pro (POS System)</div>
+                    <div class="project-tags">
+                        <span class="tag">C#</span>
+                        <span class="tag">SQLite</span>
+                        <span class="tag">Software Architecture</span>
+                    </div>
+                    <p class="project-description">
+                        A desktop Point of Sale (POS) and inventory management system engineered with custom desktop controls, structured design patterns, and an embedded transactional relational database schema.
+                    </p>
+                    <div class="project-metrics">
+                        <strong>Technical Focus:</strong> Achieved ultra-fast data lookups using index optimization and handled complete data-mapping structures locally.
+                    </div>
+                    <div class="links-group">
+                        <a href="#" class="btn btn-secondary" target="_blank">View Code Architecture</a>
+                    </div>
+                </div>
+
+                <!-- PROJECT CARD 3 -->
+                <div class="project-card">
+                    <div class="project-title">Prak Splitter Mobile App</div>
+                    <div class="project-tags">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Dart</span>
+                        <span class="tag">Mobile Development</span>
+                    </div>
+                    <p class="project-description">
+                        A responsive mobile application designed to calculate, split, and keep record of shared group expenses smoothly, featuring an intuitive UI/UX flow and client-side data state management.
+                    </p>
+                    <div class="project-metrics">
+                        <strong>Technical Focus:</strong> Cross-platform state control, efficient local caching architectures, and clean component breakdowns.
+                    </div>
+                    <div class="links-group">
+                        <a href="#" class="btn btn-secondary" target="_blank">View Repository</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Noun Panhavuth. Built with clean HTML & CSS. Hosted on GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
+
